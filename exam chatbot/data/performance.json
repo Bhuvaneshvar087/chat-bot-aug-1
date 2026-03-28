@@ -1,0 +1,57 @@
+{
+    "bayes theorem": {
+        "attempts": 21,
+        "incorrect": 1,
+        "total_time": 2446.8489999999997
+    },
+    "bayes": {
+        "attempts": 2,
+        "incorrect": 0,
+        "total_time": 42.838
+    },
+    "adsas": {
+        "attempts": 1,
+        "incorrect": 0,
+        "total_time": 3.203
+    },
+    "xgd": {
+        "attempts": 1,
+        "incorrect": 0,
+        "total_time": 3.097
+    },
+    "Chemistry": {
+        "attempts": 1,
+        "incorrect": 0,
+        "total_time": 10.285
+    },
+    "Physics": {
+        "attempts": 10,
+        "incorrect": 0,
+        "total_time": 354.794
+    },
+    "Computer Science": {
+        "attempts": 3,
+        "incorrect": 0,
+        "total_time": 238.926
+    },
+    "Mathematics": {
+        "attempts": 10,
+        "incorrect": 0,
+        "total_time": 739.142
+    },
+    "Commerce": {
+        "attempts": 4,
+        "incorrect": 0,
+        "total_time": 141.785
+    },
+    "cricket": {
+        "attempts": 3,
+        "incorrect": 0,
+        "total_time": 114.84100000000001
+    },
+    "Bayes theorem": {
+        "attempts": 1,
+        "incorrect": 0,
+        "total_time": 77.663
+    }
+}

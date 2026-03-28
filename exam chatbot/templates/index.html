@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamAI - Intelligent Exam Preparation</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>ExamAI</span>
+                </div>
+                <button class="new-chat-btn" onclick="newChat()">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <h3>Features</h3>
+                    <div class="sidebar-item active">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                    </div>
+                    <div class="sidebar-item" onclick="showComingSoon('Analytics')">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </div>
+                    <div class="sidebar-item" onclick="showComingSoon('Library')">
+                        <i class="fas fa-book"></i>
+                        <span>Library</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Quick Topics</h3>
+                    <div class="topic-tag" onclick="setTopic('Mathematics')">Mathematics</div>
+                    <div class="topic-tag" onclick="setTopic('Commerce')">Commerce</div>
+                    <div class="topic-tag" onclick="setTopic('Physics')">Physics</div>
+                    <div class="topic-tag" onclick="setTopic('Computer Science')">Computer Science</div>
+                    <div class="topic-tag" onclick="setTopic('Chemistry')">Chemistry</div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="chat-history-section">
+                    <h3>Chat History</h3>
+                    <div id="chatHistory"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Header -->
+            <div class="header">
+                <div class="header-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Exam Preparation Assistant</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" onclick="exportChat()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="header-btn" onclick="showComingSoon('Analytics')">
+                        <i class="fas fa-chart-line"></i> Analytics
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area" id="chatArea">
+                <!-- Initial State -->
+                <div class="initial-state" id="initialState">
+                    <div class="orb-container">
+                        <div class="orb"></div>
+                    </div>
+                    <h1>Ready to Ace Your Exams?</h1>
+                    <p>Ask me anything about your exam topics</p>
+                    
+                    <div class="quick-actions">
+                        <button class="quick-btn" onclick="quickAction('2 marks')">
+                            <i class="fas fa-bolt"></i> Quick Answer (2 Marks)
+                        </button>
+                        <button class="quick-btn" onclick="quickAction('detailed')">
+                            <i class="fas fa-book-open"></i> Detailed (10 Marks)
+                        </button>
+                        <button class="quick-btn" onclick="quickAction('explain')">
+                            <i class="fas fa-lightbulb"></i> Explain Concept
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="messages" id="messages"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-container">
+                    <div class="input-header">
+                        <input type="text" id="topic" placeholder="Topic (e.g., Bayes Theorem)" class="topic-input">
+                        <select id="marks" class="marks-select">
+                            <option value="2">2 Marks</option>
+                            <option value="6">6 Marks</option>
+                            <option value="10">10 Marks</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <button class="input-btn" title="Attach">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <input type="text" id="question" placeholder="Ask anything..." class="main-input">
+                        <button class="send-btn" onclick="askAI()">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Bar -->
+                <div class="bottom-actions">
+                    <div class="action-card" onclick="quickAction('example')">
+                        <i class="fas fa-image"></i>
+                        <div class="action-info">
+                            <h4>Example Questions</h4>
+                            <p>Get sample exam questions</p>
+                        </div>
+                    </div>
+                    <div class="action-card" onclick="quickAction('summary')">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="action-info">
+                            <h4>Topic Summary</h4>
+                            <p>Quick revision notes</p>
+                        </div>
+                    </div>
+                    <div class="action-card" onclick="showComingSoon('Performance Analytics')">
+                        <i class="fas fa-chart-bar"></i>
+                        <div class="action-info">
+                            <h4>Performance</h4>
+                            <p>View your weak areas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-chart-line"></i> Performance Report</h2>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="report"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
