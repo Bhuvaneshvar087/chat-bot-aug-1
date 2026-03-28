@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request, jsonify
 import time
+import os
 from ai_engine import generate_exam_answer
 from analytics import update_performance, generate_report
 
 app = Flask(__name__)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app.template_folder = os.path.join(BASE_DIR, 'templates')
+app.static_folder = os.path.join(BASE_DIR, 'static')
 
 @app.route("/")
 def home():
@@ -45,5 +50,4 @@ def report():
     return jsonify(generate_report())
 
 if __name__ == "__main__":
-    def handler(request):
-        return app
+    app.run(debug=True)
