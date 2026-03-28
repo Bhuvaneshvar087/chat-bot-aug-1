@@ -45,4 +45,5 @@ def report():
     return jsonify(generate_report())
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    def handler(request):
+        return app(request)
