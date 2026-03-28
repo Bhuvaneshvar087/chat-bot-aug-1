@@ -46,4 +46,4 @@ def report():
 
 if __name__ == "__main__":
     def handler(request):
-        return app(request)
+        return app
